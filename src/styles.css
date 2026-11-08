@@ -122,4 +122,38 @@ a:hover {
 img.socialIcon {
   height: 30px;
   width: 30px;
+  transform-origin: center;
+}
+
+a:hover img.socialIcon,
+a:focus-visible img.socialIcon {
+  animation: social-icon-pop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes social-icon-pop {
+  0% {
+    transform: translateY(0) scale(1) rotate(0);
+    filter: drop-shadow(0 0 0 rgb(0 0 0 / 0));
+  }
+  38% {
+    transform: translateY(-9px) scale(1.28) rotate(12deg);
+    filter: drop-shadow(0 7px 5px rgb(0 0 0 / 0.28));
+  }
+  62% {
+    transform: translateY(-4px) scale(1.12) rotate(-8deg);
+  }
+  82% {
+    transform: translateY(-7px) scale(1.17) rotate(4deg);
+  }
+  100% {
+    transform: translateY(-5px) scale(1.12) rotate(0);
+    filter: drop-shadow(0 5px 4px rgb(0 0 0 / 0.2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a:hover img.socialIcon,
+  a:focus-visible img.socialIcon {
+    animation: none;
+  }
 }
